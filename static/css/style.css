@@ -1,15 +1,15 @@
 :root {
     --bg-color: #050505;
     --card-bg: rgba(20, 20, 20, 0.8);
-    --accent-color: #ff3e3e; /* アイコン由来の赤 */
+    --accent-color: #ff5f5f; /* アイコン由来の赤 */
     --text-main: #e0e0e0;
     --text-dim: #999;
     --grid-color: rgba(255, 62, 62, 0.05);
 }
 
 html {
-            font-size: 17px; 
-        }
+    font-size: 17px; 
+}
 
 body {
     font-family: 'Space Grotesk', sans-serif;
@@ -20,6 +20,8 @@ body {
     padding: 20px;
     line-height: 1.6;
     overflow-x: hidden;
+    font-weight: 400; /* Ensures better clarity on dark backgrounds */
+    -webkit-font-smoothing: antialiased; /* Makes fonts look sharper on Mac/iOS */
 }
 
 /* 背景エフェクト */
@@ -65,7 +67,7 @@ body {
 }
 
 .title {
-    font-size: 3.5rem;
+    font-size: clamp(2rem, 10vw, 3.5rem); /* Responsive font sizing */
     font-weight: 700;
     margin: 0;
     letter-spacing: -2px;
@@ -165,4 +167,16 @@ a:hover {
     padding: 40px 0;
     color: var(--text-dim);
     font-size: 0.8rem;
+}
+
+strong {
+    color: #fff; /* 少し明るくして視認性を向上 */
+    background: linear-gradient(transparent 70%, rgba(255, 62, 62, 0.3) 70%); /* 下半分に薄い赤のライン */
+    padding: 0 2px;
+}
+
+strong {
+    color: #fff;
+    text-shadow: 0 0 5px rgba(255, 62, 62, 0.6); /* ほのかに赤く光らせる */
+    letter-spacing: 0.5px;
 }
