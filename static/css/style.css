@@ -67,7 +67,7 @@ body {
 }
 
 .title {
-    font-size: clamp(2rem, 10vw, 3.5rem); /* Responsive font sizing */
+    font-size: clamp(2rem, 10vw, 3.0rem); /* Responsive font sizing */
     font-weight: 700;
     margin: 0;
     letter-spacing: -2px;
