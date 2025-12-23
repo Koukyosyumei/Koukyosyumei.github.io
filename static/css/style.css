@@ -147,7 +147,7 @@ a:hover {
 }
 
 .tag {
-    font-size: 0.7rem;
+    font-size: 1.0rem;
     background: rgba(255, 62, 62, 0.15);
     color: var(--accent-color);
     padding: 2px 8px;
@@ -157,7 +157,7 @@ a:hover {
 }
 
 .year {
-    font-size: 0.8rem;
+    font-size: 1.0rem;
     color: var(--text-dim);
 }
 
@@ -168,14 +168,15 @@ a:hover {
     font-size: 0.8rem;
 }
 
-strong {
-    color: #fff; /* 少し明るくして視認性を向上 */
+.emph {
+    color: #f3f3f3;
     background: linear-gradient(transparent 70%, rgba(255, 62, 62, 0.3) 70%); /* 下半分に薄い赤のライン */
     padding: 0 2px;
 }
 
 strong {
-    color: #fff;
+    color: #f3f3f3;
     text-shadow: 0 0 5px rgba(255, 62, 62, 0.6); /* ほのかに赤く光らせる */
     letter-spacing: 0.5px;
+    padding: 0 2px;
 }
