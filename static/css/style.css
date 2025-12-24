@@ -180,3 +180,8 @@ strong {
     letter-spacing: 0.5px;
     padding: 0 2px;
 }
+
+.tight li {
+    margin-bottom: 0.6em;  /* ← item間の距離 */
+    line-height: 1.6;
+}
