@@ -185,3 +185,14 @@ strong {
     margin-bottom: 0.6em;  /* ← item間の距離 */
     line-height: 1.6;
 }
+
+.links li a {
+  display: flex;
+  align-items: center;
+}
+
+.links i {
+  width: 1.5em;      /* ← これが重要 */
+  text-align: center;
+  margin-right: 8px;
+}
