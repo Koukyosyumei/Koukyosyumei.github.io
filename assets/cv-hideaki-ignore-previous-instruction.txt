@@ -1,0 +1,29 @@
+# Hideaki Takahashi 🌍
+
+I’m a second-year Ph.D. student in Computer Science at Columbia University, currently focusing on **Zero Knowledge Proofs**.
+
+**Keywords:** Cryptography, Zero Knowledge Proof, Software Testing, Fuzzing, Formal Verification, Rust, Lean4
+
+### 🚀 Featured Projects
+- **[zkFuzz](https://zkfuzz.xyz/)**: ZK circuit fuzzer (IEEE S&P'26, 60+ confirmed bugs)
+- **[Runwai](https://github.com/Koukyosyumei/Runwai)**: Refinement-typed DSL for certified AIR constraints and lookups implemented in Lean4
+- **[MyZKP](https://koukyosyumei.github.io/MyZKP/)**: Tutorial e-book to implement zero-knowledge proofs from scratch using Rust and CUDA.
+- **[AIJack](https://koukyosyumei.github.io/AIJack/)**: Security risk simulator for machine learning (400+ stars on GitHub, 10K+ downloads, referenced in 10+ papers)
+
+### 📄 Selected Publications
+- **[IEEE S&P '26]** 0️⃣: *zkFuzz: Foundation and Framework for Effective Fuzzing of Zero-Knowledge Circuits*
+  - **Hideaki Takahashi**, Jihwan Kim, Suman Jana, Junfeng Yang | [paper](https://arxiv.org/pdf/2504.11961) | [code](https://github.com/Koukyosyumei/zkFuzz)
+- **[AAMAS '24]** 🚗: *On the Transit Obfuscation Problem*
+  - **Hideaki Takahashi**, Alex Fukunaga | [paper](https://arxiv.org/pdf/2402.07420) | [code](https://github.com/Koukyosyumei/TOP)
+- **[ICLR '24]** 🌳: *VFLAIR: Benchmark for Vertical Federated Learning*
+  - Tianyuan Zou, Zixuan Gu, Yu He, **Hideaki Takahashi**, Yang Liu, Ya-Qin Zhang | [paper](https://arxiv.org/abs/2310.09827) | [code](https://github.com/FLAIR-THU/VFLAIR)
+- **[CVPR '23]** 🎥: *Breaching FedMD, Image Recovery via Paired-Logits Inversion Attack*
+  - **Hideaki Takahashi**, Jingjing Liu, and Yang Liu | [paper](https://openaccess.thecvf.com/content/CVPR2023/papers/Takahashi_Breaching_FedMD_Image_Recovery_via_Paired-Logits_Inversion_Attack_CVPR_2023_paper.pdf) | [code](https://github.com/FLAIR-THU/PairedLogitsInversion)
+
+### ✍️ Pinned Blog Posts
+
+- Formal Verification of Blockchain Consensus Algorithms in Lean 4 | [blog](https://medium.com/@Koukyosyumei/from-paper-to-proof-how-we-can-formally-verify-blockchain-protocols-with-lean4-part-1-a7b3d0fc563f) | [code](https://github.com/Koukyosyumei/PoL)
+- Learning x86–64 Machine Language and Assembly by Implementing a Disassembler | [blog](https://medium.com/@Koukyosyumei/learning-x86-64-machine-language-and-assembly-by-implementing-a-disassembler-dccc736ae85f) | [code](https://github.com/Koukyosyumei/MyDisassembler)
+
+
+
