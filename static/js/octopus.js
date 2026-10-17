@@ -224,7 +224,7 @@ const octopus = (() => {
   window.addEventListener('resize', () => { resize(); if (still) draw(0); });
   window.addEventListener('pointermove', e => { mouse = {x: e.clientX / Math.max(1, width), y: e.clientY / Math.max(1, height)}; });
   resize(); init();
-  // The name's width, which decides which fuzzers fit, changes once Archivo loads.
+  // The name's width, which decides which fuzzers fit, changes once Schibsted Grotesk loads.
   if (document.fonts) document.fonts.ready.then(seat);
   return {running(want) {
     if (still) { if (want) { resize(); draw(0); } return; }
