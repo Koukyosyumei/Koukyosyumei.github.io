@@ -84,8 +84,9 @@ a { color: inherit; }
 .badges { display: flex; gap: 6px; margin-top: 8px; }
 .badges img { height: 20px; }
 
-.links { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0; border: 1px solid var(--line); background: var(--surface); }
-.links li { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 0 -1px -1px 0; }
+/* Flex rather than grid, so every row fills the width and no empty cell is left at the end. */
+.links { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; border: 1px solid var(--line); background: var(--surface); overflow: hidden; }
+.links li { flex: 1 1 170px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 0 -1px -1px 0; }
 .links a { display: flex; align-items: center; gap: 12px; padding: 16px 18px; text-decoration: none; color: var(--ink-2); font: 400 12px var(--mono); }
 .links a::before { content: '$'; color: var(--ink-3); }
 .links a:hover { color: var(--accent); background: var(--raised); }
