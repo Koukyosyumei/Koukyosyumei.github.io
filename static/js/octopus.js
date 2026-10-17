@@ -2,7 +2,8 @@
 // Adapted from o5s's `o5s ui` (../o5s/crates/server/src/index.html).
 // The octopus is a wall of code; the creature is the code's light. Its shape
 // is drawn into an offscreen canvas one pixel per character cell, and each
-// cell's character takes that pixel's brightness.
+// cell's character takes that pixel's brightness. Fuzzers to its left send
+// inputs; its arms reach out, catch them and carry them home.
 const $ = id => document.getElementById(id);
 const still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const SOURCE = `template IsZero() { signal input in; signal output out; signal inv;
@@ -17,6 +18,8 @@ assert!(verify(&vk, &proof, &public_inputs)); let witness = prover.witness(&circ
 loss = criterion(model(x), y); grad = torch.autograd.grad(loss, params); x_rec = invert(logits)
 `.replace(/\s+/g, ' ');
 const CW = 7.2, CH = 13, FONT = '12px "IBM Plex Mono", Menlo, monospace';
+const rand = (a, b) => a + Math.random() * (b - a);
+const hex = () => Math.floor(Math.random() * 0xffff).toString(16).padStart(4, '0');
 // Cell colour from the shape: red is flesh, green the eye, blue the pupil.
 function flesh(r, alpha) {
   const k = r / 255;
@@ -32,7 +35,7 @@ const octopus = (() => {
   const CW = 4.8, CH = 8.7, FONT = '8px "IBM Plex Mono", Menlo, monospace';
   const shape = document.createElement('canvas'), sctx = shape.getContext('2d', {willReadFrequently: true});
   let cols = 0, rows = 0, cells = [], width = 0, height = 0, on = false, frame = 0;
-  let mouse = {x: 0.7, y: 0.4}, blinkAt = 0, arms = [];
+  let mouse = {x: 0.7, y: 0.4}, blinkAt = 0, arms = [], inputs = [], eaten = [], fuzzers = [], last = 0, nextInput = 0;
   function resize() {
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     width = wall.clientWidth; height = wall.clientHeight;
@@ -40,6 +43,7 @@ const octopus = (() => {
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     cols = Math.ceil(width / CW); rows = Math.ceil(height / CH);
     shape.width = cols; shape.height = rows;
+    seat();
     cells = [];
     for (let y = 0; y < rows; y++) for (let x = 0; x < cols; x++) cells.push(SOURCE[(y * 131 + x) % SOURCE.length]);
   }
@@ -50,22 +54,92 @@ const octopus = (() => {
     const top = 84 / CH, ry = Math.max(3, (rows - top - 1) / 3.9), rx = ry * 1.17;
     return {cx: cols - rx * 3.2 - 3, cy: top + ry * 1.5 + Math.sin(t * 0.0009) * ry * 0.1, rx, ry};
   }
+  // Fuzzers in a loose column left of the octopus: x in body widths from its
+  // centre, y as a fraction of the stage. One that would land on the name
+  // stays quiet, and on a narrow screen inputs come from the edges instead.
+  const SEATS = [[-6.4, 0.2], [-4.7, 0.34], [-6.8, 0.5], [-4.5, 0.64], [-6.2, 0.8], [-4.8, 0.94]];
+  function seat() {
+    const b = body(0), name = $('hero-title'), clear = name ? name.getBoundingClientRect().right + 24 : 0;
+    fuzzers = SEATS.map(([fx, fy], k) => {
+      const x = b.cx + fx * b.rx, y = Math.max(84 / CH + 2, Math.min(rows - 1.5, fy * rows));
+      return {name: 'fuzz·' + String(k + 1).padStart(2, '0'), x, y, next: rand(0, 2500), sent: -1e9, on: width >= 900 && x * CW > clear};
+    });
+  }
   function init() {
-    arms = Array.from({length: 8}, (_, i) => ({i, phase: i * 0.8}));
+    arms = Array.from({length: 8}, (_, i) => ({i, phase: i * 0.8, target: null, reach: 0, tip: null}));
+  }
+  function send(g, t) {
+    const b = body(t), sx = g.x + 4, sy = g.y, dx = b.cx - sx, dy = b.cy - sy, d = Math.hypot(dx, dy) || 1;
+    const stop = Math.min(d * 0.6, b.rx * rand(2.6, 3.4));
+    inputs.push({x: sx, y: sy, sx, sy, age: 0, label: hex(), arm: -1, tx: b.cx - dx / d * stop, ty: b.cy - dy / d * stop * 0.9});
+    g.sent = t;
+  }
+  // An input enters from the top, right or bottom edge, clear of the name on
+  // the left, and stops short of the octopus, where an arm can reach it.
+  function spawn(t) {
+    const b = body(t), top = 84 / CH, edge = Math.random();
+    const sx = edge < 0.6 ? rand(cols * 0.55, cols) : edge < 0.8 ? cols + 2 : rand(cols * 0.6, cols);
+    const sy = edge < 0.6 ? top : edge < 0.8 ? rand(top, rows) : rows + 1;
+    const dx = b.cx - sx, dy = b.cy - sy, d = Math.hypot(dx, dy) || 1, stop = Math.min(d * 0.7, b.rx * rand(2.6, 3.6));
+    inputs.push({x: sx, y: sy, sx, sy, age: 0, label: hex(), arm: -1,
+      tx: Math.min(cols - 8, b.cx - dx / d * stop), ty: Math.max(top + 1, Math.min(rows - 2, b.cy - dy / d * stop))});
+  }
+  function step(t, dt) {
+    const free = inputs.filter(p => p.arm < 0).length, active = fuzzers.filter(g => g.on);
+    for (const g of active) {
+      g.next -= dt;
+      if (g.next <= 0) { if (free < 8) send(g, t); g.next = rand(2500, 6500); }
+    }
+    if (!active.length && t > nextInput) {
+      if (free < 8) spawn(t);
+      nextInput = t + rand(900, 2400);
+    }
+    for (const p of inputs) if (p.arm < 0) {
+      p.age = Math.min(1, p.age + dt / 1600);
+      const e = 1 - Math.pow(1 - p.age, 3);
+      p.x = p.sx + (p.tx - p.sx) * e; p.y = p.sy + (p.ty - p.sy) * e;
+    }
+    for (const arm of arms) {
+      if (!arm.target) {
+        if (Math.random() < 0.012 * dt / 16) {
+          const free = inputs.filter(p => p.arm < 0 && p.age > 0.9);
+          if (free.length) { const p = free[Math.floor(Math.random() * free.length)]; p.arm = arm.i; arm.target = p; arm.reach = 0; arm.out = true; }
+        }
+        continue;
+      }
+      const p = arm.target;
+      if (arm.out) {
+        arm.reach = Math.min(1, arm.reach + dt * 0.0011);
+        if (arm.reach >= 1) arm.out = false;
+      } else {
+        // Carry the input home: it follows the tip back.
+        arm.reach = Math.max(0, arm.reach - dt * 0.0009);
+        if (arm.tip) { p.x = arm.tip.x; p.y = arm.tip.y; }
+        if (arm.reach <= 0) {
+          eaten.push({x: p.x, y: p.y, label: p.label, born: t});
+          inputs.splice(inputs.indexOf(p), 1);
+          arm.target = null;
+        }
+      }
+    }
+    eaten = eaten.filter(e => t - e.born < 900);
   }
   function armPoints(arm, b, t) {
     // Waves, curls and widths are o5s's, which drew a body with ry ≈ 14.5.
     const n = 22, base = (arm.i - 3.5) / 3.5, points = [], k = b.ry / 14.5;
     const bx = b.cx + base * b.rx * 0.8, by = b.cy + b.ry * 0.78;
-    const goal = {x: b.cx + base * b.rx * 2.6, y: b.cy + b.ry * 2.4 + Math.abs(base) * -4 * k}, side = base < 0 ? -1 : 1;
+    const rest = {x: b.cx + base * b.rx * 2.6, y: b.cy + b.ry * 2.4 + Math.abs(base) * -4 * k};
+    const goal = arm.target ? {x: rest.x + (arm.target.x - rest.x) * arm.reach, y: rest.y + (arm.target.y - rest.y) * arm.reach} : rest;
+    const idle = 1 - (arm.target ? arm.reach : 0), side = base < 0 ? -1 : 1;
     for (let s = 0; s <= n; s++) {
       const u = s / n;
       // A slow travelling wave, and a curl that tightens toward the tip.
-      const wave = Math.sin(t * 0.0016 + arm.phase + u * 4.4) * 2.4 * k * u * u;
-      const curl = u * u * u * 5 * k * side * (0.6 + 0.4 * Math.sin(t * 0.0009 + arm.phase));
+      const wave = Math.sin(t * 0.0016 + arm.phase + u * 4.4) * idle * 2.4 * k * u * u;
+      const curl = idle * u * u * u * 5 * k * side * (0.6 + 0.4 * Math.sin(t * 0.0009 + arm.phase));
       points.push({x: bx + (goal.x - bx) * u + wave * 1.4 + curl, y: by + (goal.y - by) * u + wave - curl * 0.6 * u,
         w: (Math.pow(1 - u, 1.4) * 4.2 + 0.35) * k});
     }
+    arm.tip = points[n];
     return points;
   }
   function drawShape(t) {
@@ -116,18 +190,45 @@ const octopus = (() => {
       ctx.fillStyle = g > 100 ? 'rgb(245,214,160)' : r > 30 ? flesh(r, 0.42) : 'rgba(235,230,219,0.07)';
       ctx.fillText(ch, x * CW, y * CH);
     }
+    // Fuzzers, inputs in flight with a short dotted trail, and those just taken in.
+    ctx.font = '400 9px "IBM Plex Mono", Menlo, monospace';
+    for (const g of fuzzers) if (g.on) {
+      const hot = t - g.sent < 900, cursor = Math.floor(t / 530 + g.y) % 2 ? '▍' : ' ';
+      ctx.fillStyle = hot ? '#ff6258' : 'rgba(235,230,219,0.5)';
+      ctx.fillText(`${g.name} $ ${hot ? 'send ↗' : 'mutate' + cursor}`, g.x * CW, g.y * CH - 4);
+    }
+    ctx.font = '500 10px "IBM Plex Mono", Menlo, monospace';
+    for (const p of inputs) {
+      if (p.arm < 0 && p.age < 1) {
+        ctx.fillStyle = 'rgba(255,98,88,0.35)';
+        for (let k = 1; k <= 4; k++) {
+          const e = Math.max(0, 1 - Math.pow(1 - Math.max(0, p.age - k * 0.06), 3));
+          ctx.fillText('·', (p.sx + (p.tx - p.sx) * e) * CW, (p.sy + (p.ty - p.sy) * e) * CH - 6);
+        }
+      }
+      ctx.fillStyle = p.arm >= 0 ? '#ff8a82' : 'rgba(235,230,219,0.92)';
+      ctx.fillText(`[0x${p.label}]`, p.x * CW - 26, p.y * CH - 5);
+    }
+    for (const e of eaten) {
+      const k = (t - e.born) / 900;
+      ctx.fillStyle = `rgba(255,98,88,${1 - k})`;
+      ctx.fillText(`[0x${e.label}]`, e.x * CW - 26, e.y * CH - 5 - k * 10);
+    }
   }
   function loop(t) {
     if (!on) return;
-    if (frame++ % 2 === 0) draw(t);
+    const dt = Math.min(64, t - (last || t)); last = t;
+    if (frame++ % 2 === 0) { step(t, dt * 2); draw(t); }
     requestAnimationFrame(loop);
   }
   window.addEventListener('resize', () => { resize(); if (still) draw(0); });
   window.addEventListener('pointermove', e => { mouse = {x: e.clientX / Math.max(1, width), y: e.clientY / Math.max(1, height)}; });
   resize(); init();
+  // The name's width, which decides which fuzzers fit, changes once Archivo loads.
+  if (document.fonts) document.fonts.ready.then(seat);
   return {running(want) {
     if (still) { if (want) { resize(); draw(0); } return; }
-    if (want && !on) { on = true; requestAnimationFrame(loop); }
+    if (want && !on) { on = true; last = 0; requestAnimationFrame(loop); }
     if (!want) on = false;
   }};
 })();

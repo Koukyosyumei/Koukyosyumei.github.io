@@ -35,7 +35,7 @@ a { color: inherit; }
     background: linear-gradient(90deg, rgba(5,5,6,.92) 0, rgba(5,5,6,.6) 40%, rgba(5,5,6,0) 65%); }
 .hero { position: relative; z-index: 5; max-width: 100%; }
 .hero .kicker { color: var(--accent); margin-bottom: 14px; }
-.hero h1 { margin: 0; white-space: nowrap; font: 600 clamp(28px, 4.6vw, 64px)/1.05 var(--sans); font-stretch: 118%; letter-spacing: -.02em; }
+.hero h1 { margin: 0; white-space: nowrap; font: 600 clamp(28px, 5.4vw, 72px)/1.05 var(--sans); font-stretch: 118%; letter-spacing: -.02em; }
 .hero h1 i { font-style: normal; color: var(--accent); }
 .hero .lede { margin: 16px 0 0; font: 500 clamp(16px, 1.6vw, 21px)/1.35 var(--sans); font-stretch: 108%; color: var(--ink); }
 .hero .lede i { font-style: normal; color: var(--accent); }
@@ -55,7 +55,7 @@ a { color: inherit; }
 .section-body { padding: 28px 40px 36px; min-width: 0; }
 .section-body h3 { margin: 12px 0 4px; color: var(--ink-3); font: 400 11px/1.4 var(--mono); letter-spacing: .16em; text-transform: uppercase; }
 
-.bio { max-width: 70ch; font-size: 13.5px; line-height: 1.85; color: var(--ink-2); }
+.bio { max-width: 120ch; font-size: 13.5px; line-height: 1.85; color: var(--ink-2); }
 .bio p { margin: 12px 0 0; }
 .bio p:first-child { margin-top: 12px; }
 .bio a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 4px; }
