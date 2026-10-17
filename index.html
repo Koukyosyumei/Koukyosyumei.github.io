@@ -44,238 +44,272 @@
     <link rel="icon" href="assets/icon.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+        <meta name="theme-color" content="#050506">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..700&family=IBM+Plex+Mono:wght@400;500&display=swap">
     <link rel="stylesheet" href="static/css/style.css">
-    <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <div class="bg-grid"></div>
-    <div class="bg-glow"></div>
+<header class="frame-top" id="frame">
+    <a class="brand" href="#top" aria-label="Hideaki Takahashi, top"><img src="assets/icon.png" alt=""><span>koukyosyumei</span></a>
+    <nav class="nav" aria-label="Sections">
+        <a href="#about">about</a>
+        <a href="#papers">papers</a>
+        <a href="#findings">findings</a>
+        <a href="#software">software</a>
+        <a href="#experience">experience</a>
+        <a href="#honors">honors</a>
+        <a href="#contact">contact</a>
+        <a class="gh" href="https://github.com/Koukyosyumei">github</a>
+        <a class="cv" href="https://koukyosyumei.github.io/assets/CV.pdf">cv ↗</a>
+    </nav>
+</header>
 
-    <h1 class="title">Hideaki Takahashi</h1>
-    <p class="subtitle">Ph.D. @Columbia / Crypto / AI / System Security</p>
-    <p>I am a third-year PhD student in the Computer Science department at <span class="emph">Columbia University</span>, advised 
-        by <a href='https://www.cs.columbia.edu/~junfeng/'>Prof. Junfeng Yang</a>. I also work closely 
-        with <a href='https://www.cs.columbia.edu/~suman/'>Prof. Suman Jana</a> and am a member of the Center for Digital Finance and Technologies. 
-        My current work focuses on <span class="emph">Software Security</span>, <span class="emph">Zero Knowledge Proofs</span>, and <span class="emph">AI agents</span>.<br/><br/>
-        I received a Bachelor of Arts and Science in Informatics from the University of Tokyo, where I was advised 
-        by <a href='http://www.metahack.org/'>Prof. Alex Fukunaga</a>. During my undergraduate studies, I spent a gap year as a research intern at Tsinghua University under the 
-        supervision of <a href='https://sites.google.com/site/yangliuveronica/home'>Prof. Yang Liu</a> and 
-        <a href='https://scholar.google.com/citations?user=BzJ_GboAAAAJ'>Prof. Jingjing Liu</a>.<br/><br/>
-        I am also passionate about open-source development, and my projects have gained 1.4k+ GitHub stars in totoal.
-        <br/><br/>
-        <span style="font-style: italic; opacity: 0.8;">
-            (Tip: The most useful information on this page, my favorite Japanese restaurants in NYC, is available at the very end.)
-        </span>
-    </p>
-    <br/>
-    Links:
-    <ul class="links">
-        <li><a href="https://koukyosyumei.github.io/assets/CV.pdf"><i class="fa-solid fa-file-lines"></i> CV</a></li>
-        <li><a href="https://medium.com/@Koukyosyumei"><i class="fa-brands fa-medium"></i> Blog</a></li>
-        <li><a href="https://github.com/Koukyosyumei"><i class="fa-brands fa-github"></i> GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/koukyosyumei/"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></li>
-        <li><a href="https://scholar.google.com/citations?user=RA3z3UEAAAAJ"><i class="fa-solid fa-graduation-cap"></i> Google Scholar</a></li>
-    </ul>
-    Keywords:
-    <ul>
-        <li><span class="tag">Software Testing</span> <span class="tag">Fuzzing</span> <span class="tag">Formal Method</span> <span class="tag">Zero Knowledge Proof</span> <span class="tag">Federated Learning</span></li>
-    </ul>
+<main id="top">
+    <section class="stage" aria-labelledby="hero-title">
+        <canvas class="wall" id="wall" aria-hidden="true"></canvas>
+        <div class="scrim"></div>
+        <div class="hero">
+            <div class="kicker mono">Ph.D. @Columbia / Crypto / AI / System Security</div>
+            <h1 id="hero-title">Hideaki <i>Takahashi</i></h1>
+            <p class="lede">Software security, <i>zero-knowledge proofs</i>, and AI agents.</p>
+            <div class="hero-links">
+                <a class="btn primary" href="https://koukyosyumei.github.io/assets/CV.pdf"><i class="fa-solid fa-file-lines"></i> CV</a>
+                <a class="btn" href="https://github.com/Koukyosyumei"><i class="fa-brands fa-github"></i> GitHub</a>
+                <a class="btn" href="https://scholar.google.com/citations?user=RA3z3UEAAAAJ"><i class="fa-solid fa-graduation-cap"></i> Scholar</a>
+            </div>
+        </div>
+    </section>
 
-    <div class="section tight">
-        <h2>Education</h2>
-        <ul>
-            <li><strong>Columbia University in the City of New York</strong>: <span class="year">Sep. 2024 ~</span><br/>
-                <span class="indent">Ph.D. Student (Computer Science)</span>
-            </li>
-            <li><strong>The University of Tokyo</strong>: <span class="year">Apr. 2019 ~ Mar. 2024</span><br/>
-                <span class="indent">Bachelor of Arts and Science (Informatics)</span>
-            </li>
+    <section class="section" id="about" aria-labelledby="about-title">
+        <div class="section-head"><div><div class="mono">01 · about</div><h2 id="about-title">Hello <i>&amp;</i> welcome.</h2></div></div>
+        <div class="section-body">
+            <div class="bio">
+                <p>I am a third-year PhD student in the Computer Science department at <span class="emph">Columbia University</span>, advised
+                by <a href="https://www.cs.columbia.edu/~junfeng/">Prof. Junfeng Yang</a>. I also work closely
+                with <a href="https://www.cs.columbia.edu/~suman/">Prof. Suman Jana</a> and am a member of the Center for Digital Finance and Technologies.
+                My current work focuses on <span class="emph">Software Security</span>, <span class="emph">Zero Knowledge Proofs</span>, and <span class="emph">AI agents</span>.</p>
+                <p>I received a Bachelor of Arts and Science in Informatics from the University of Tokyo, where I was advised
+                by <a href="http://www.metahack.org/">Prof. Alex Fukunaga</a>. During my undergraduate studies, I spent a gap year as a research intern at Tsinghua University under the
+                supervision of <a href="https://sites.google.com/site/yangliuveronica/home">Prof. Yang Liu</a> and
+                <a href="https://scholar.google.com/citations?user=BzJ_GboAAAAJ">Prof. Jingjing Liu</a>.</p>
+                <p>I am also passionate about open-source development, and my projects have gained 1.4k+ GitHub stars in total.</p>
+                <p class="tip">Tip: The most useful information on this page, my <a href="#restaurants">favorite Japanese restaurants in NYC</a>, is available at the very end.</p>
+            </div>
+            <div class="chips" aria-label="Keywords">
+                <span class="tag">Software Testing</span><span class="tag">Fuzzing</span><span class="tag">Formal Method</span><span class="tag">Zero Knowledge Proof</span><span class="tag">Federated Learning</span>
+            </div>
+            <h3 style="margin-top:28px">links</h3>
+            <ul class="links">
+                <li><a href="https://koukyosyumei.github.io/assets/CV.pdf"><i class="fa-solid fa-file-lines"></i> cv</a></li>
+                <li><a href="https://medium.com/@Koukyosyumei"><i class="fa-brands fa-medium"></i> blog</a></li>
+                <li><a href="https://github.com/Koukyosyumei"><i class="fa-brands fa-github"></i> github</a></li>
+                <li><a href="https://www.linkedin.com/in/koukyosyumei/"><i class="fa-brands fa-linkedin"></i> linkedin</a></li>
+                <li><a href="https://scholar.google.com/citations?user=RA3z3UEAAAAJ"><i class="fa-solid fa-graduation-cap"></i> google scholar</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section" id="education" aria-labelledby="education-title">
+        <div class="section-head"><div><div class="mono">02 · education</div><h2 id="education-title">Education</h2></div></div>
+        <div class="section-body"><ul class="entries">
+            <li class="entry"><div class="meta"><span class="year">Sep. 2024 ~</span></div><div>
+                <p class="title">Columbia University in the City of New York</p><p class="sub">Ph.D. Student (Computer Science)</p></div></li>
+            <li class="entry"><div class="meta"><span class="year">Apr. 2019 ~ Mar. 2024</span></div><div>
+                <p class="title">The University of Tokyo</p><p class="sub">Bachelor of Arts and Science (Informatics)</p></div></li>
+        </ul></div>
+    </section>
+
+    <section class="section" id="papers" aria-labelledby="papers-title">
+        <div class="section-head"><div><div class="mono">03 · papers</div><h2 id="papers-title">Peer-reviewed <i>papers</i></h2><p>* first author</p></div></div>
+        <div class="section-body"><ul class="entries">
+            <li class="entry"><div class="meta"><span class="venue">CCS'26</span><span class="year">2026</span></div><div>
+                <p class="title"><a href="https://arxiv.org/pdf/2609.15020v1">Efficient Branch-and-Bound Testing and Verification of zkVMs.</a></p>
+                <p class="sub"><b>Hideaki Takahashi*</b>, Suman Jana, Junfeng Yang</p>
+                <p class="desc">ACM Conference on Computer and Communications Security</p></div></li>
+            <li class="entry"><div class="meta"><span class="venue">IEEE S&amp;P'26</span><span class="year">2026</span></div><div>
+                <p class="title"><a href="https://arxiv.org/pdf/2504.11961">zkFuzz: Foundation and Framework for Effective Fuzzing of Zero-Knowledge Circuits.</a></p>
+                <p class="sub"><b>Hideaki Takahashi*</b>, Jihwan Kim, Suman Jana, Junfeng Yang</p>
+                <p class="desc">IEEE Symposium on Security and Privacy</p></div></li>
+            <li class="entry"><div class="meta"><span class="venue">AAMAS'24</span><span class="year">2024</span></div><div>
+                <p class="title"><a href="https://arxiv.org/pdf/2402.07420">On the Transit Obfuscation Problem.</a></p>
+                <p class="sub"><b>Hideaki Takahashi*</b>, Alex Fukunaga</p>
+                <p class="desc">Proceedings of the International Conference on Autonomous Agents and Multi-Agent Systems</p></div></li>
+            <li class="entry"><div class="meta"><span class="venue">ICLR'24</span><span class="year">2024</span></div><div>
+                <p class="title"><a href="https://arxiv.org/pdf/2310.09827">VFLAIR, A Research Library and Benchmark for Vertical Federated Learning.</a></p>
+                <p class="sub">Zou, Tianyuan, Zixuan Gu, Yuanqin He, <b>Hideaki Takahashi</b>, Yang Liu, Guangnan Ye and Ya-Qin Zhang</p>
+                <p class="desc">Proceedings of the International Conference on Learning Representations</p></div></li>
+            <li class="entry"><div class="meta"><span class="venue">CVPR'23</span><span class="year">2023</span></div><div>
+                <p class="title"><a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Takahashi_Breaching_FedMD_Image_Recovery_via_Paired-Logits_Inversion_Attack_CVPR_2023_paper.pdf">Breaching FedMD, Image Recovery via Paired-Logits Inversion Attack.</a></p>
+                <p class="sub"><b>Hideaki Takahashi*</b>, Jingjing Liu, and Yang Liu</p>
+                <p class="desc">Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition</p></div></li>
         </ul>
-    </div>
+        <h3 style="margin-top:28px">preprints</h3>
+        <ul class="entries">
+            <li class="entry"><div class="meta"><span class="venue">arXiv</span><span class="year">2024</span></div><div>
+                <p class="title"><a href="https://arxiv.org/pdf/2409.04597">Detecting buggy contracts via smart testing.</a></p>
+                <p class="sub">Sally Junsong Wang, Jianan Yao, Kexin Pei, <b>Hideaki Takahashi</b>, and Junfeng Yan</p>
+                <p class="desc">arXiv:2409.04597</p></div></li>
+            <li class="entry"><div class="meta"><span class="venue">arXiv</span><span class="year">2023</span></div><div>
+                <p class="title"><a href="https://arxiv.org/pdf/2307.10318">Eliminating Label Leakage in Tree‑based Vertical Federated Learning.</a></p>
+                <p class="sub"><b>Hideaki Takahashi*</b>, Jingjing Liu, and Yang Liu</p>
+                <p class="desc">arXiv:2307.10318</p></div></li>
+            <li class="entry"><div class="meta"><span class="venue">IPSJ DPS</span><span class="year">2021</span></div><div>
+                <p class="title"><a href="http://id.nii.ac.jp/1001/00214220/">Difficulty of Detecting Overstated Dataset Size in Federated Learning.</a></p>
+                <p class="sub"><b>Hideaki Takahashi*</b>, Kohei Ichikawa, and Keichi Takahashi</p>
+                <p class="desc">Technical Report of DPS, 10, Information Processing Society of Japan.</p></div></li>
+        </ul></div>
+    </section>
 
-    <div class="section tight">
-        <h2>Papers (peer-reviewed)</h2>
-        <ul>
-            <li><strong>[CCS'26]</strong> <a href="https://arxiv.org/pdf/2609.15020v1">Efficient Branch-and-Bound Testing and Verification of zkVMs.</a> ACM Conference on Computer and Communications Security <span class="year">- 2026</span><br/>
-                <span class="indent">Hideaki Takahashi*, Suman Jana, Junfeng Yang</span>
-            </li>
-            <li><strong>[IEEE S&P'26]</strong> <a href="https://arxiv.org/pdf/2504.11961">zkFuzz: Foundation and Framework for Effective Fuzzing of Zero-Knowledge Circuits.</a> IEEE Symposium on Security and Privacy <span class="year">- 2026</span><br/>
-                <span class="indent">Hideaki Takahashi*, Jihwan Kim, Suman Jana, Junfeng Yang</span>
-            </li>
-            <li><strong>[AAMAS'24]</strong> <a href="https://arxiv.org/pdf/2402.07420">On the Transit Obfuscation Problem.</a> Proceedings of the International Conference on Autonomous Agents and Multi-Agent Systems <span class="year">- 2024</span><br/>
-                <span class="indent">Hideaki Takahashi*, Alex Fukunaga</span>
-            </li>
-            <li><strong>[ICLR'24]</strong> <a href="https://arxiv.org/pdf/2310.09827">VFLAIR, A Research Library and Benchmark for Vertical Federated Learning.</a> Proceedings of the International Conference on Learning Representations <span class="year">- 2024</span><br/>
-                <span class="indent">Zou, Tianyuan, Zixuan Gu, Yuanqin He, Hideaki Takahashi, Yang Liu, Guangnan Ye and Ya-Qin Zhang</span>
-            </li>
-            <li><strong>[CVPR'23]</strong> <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Takahashi_Breaching_FedMD_Image_Recovery_via_Paired-Logits_Inversion_Attack_CVPR_2023_paper.pdf">Breaching FedMD, Image Recovery via Paired-Logits Inversion Attack.</a> Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition <span class="year">- 2023</span><br/>
-                <span class="indent">Hideaki Takahashi*, Jingjing Liu, and Yang Liu</span>
-            </li>
+    <section class="section" id="talks" aria-labelledby="talks-title">
+        <div class="section-head"><div><div class="mono">04 · talks</div><h2 id="talks-title">Talks</h2></div></div>
+        <div class="section-body"><ul class="entries">
+            <li class="entry"><div class="meta"><span class="venue">Berkeley</span><span class="year">2026</span></div><div>
+                <p class="title"><a href="https://security.cs.berkeley.edu/seminar/?talk=zkfuzz-foundation-framework-effective">UC Berkeley Security Seminar</a></p>
+                <p class="sub">zkFuzz: Foundation and Framework for Effective Fuzzing of Zero-Knowledge Circuits</p></div></li>
+            <li class="entry"><div class="meta"><span class="venue">ZK Frontier</span><span class="year">2025</span></div><div>
+                <p class="title"><a href="https://luma.com/ZKFrontier2">Zero Knowledge Frontier Japan: vol.2</a></p>
+                <p class="sub">Typical Bugs and Detection Methods in Implementing Zero‑Knowledge Proof Constraint</p></div></li>
+        </ul></div>
+    </section>
+
+    <section class="section" id="findings" aria-labelledby="findings-title">
+        <div class="section-head"><div><div class="mono">05 · findings</div><h2 id="findings-title">Selected security <i>findings</i></h2></div></div>
+        <div class="section-body"><ul class="entries">
+            <li class="entry"><div class="meta"><span class="venue">CVE-2026-40608</span></div><div>
+                <p class="title"><a href="https://github.com/DayuanJiang/next-ai-draw-io/security/advisories/GHSA-9q7h-wgfw-p378">Out-of-Memory crash in MCP server</a></p></div></li>
+            <li class="entry"><div class="meta"><span class="venue">CVE-2026-42078</span></div><div>
+                <p class="title"><a href="https://github.com/icip-cas/PPTAgent/security/advisories/GHSA-hrcw-xc63-g29m">Arbitrary File Write in MCP server</a></p></div></li>
+            <li class="entry"><div class="meta"><span class="venue">CVE-2026-42079</span></div><div>
+                <p class="title"><a href="https://github.com/icip-cas/PPTAgent/security/advisories/GHSA-89g2-xw5c-v95p">Arbitrary Code Execution in MCP server</a></p></div></li>
+            <li class="entry"><div class="meta"><span class="venue">CVE-2026-42080</span></div><div>
+                <p class="title"><a href="https://github.com/icip-cas/PPTAgent/security/advisories/GHSA-pxhg-7xr2-w7xg">Arbitrary File Write in MCP server</a></p></div></li>
+            <li class="entry"><div class="meta"><span class="venue">proof-of-burn#1</span></div><div>
+                <p class="title"><a href="https://github.com/worm-privacy/proof-of-burn/issues/1">Under-Constrained ZK Circuit</a></p>
+                <p class="sub">worm-privacy/proof-of-burn#1</p></div></li>
+        </ul></div>
+    </section>
+
+    <section class="section" id="software" aria-labelledby="software-title">
+        <div class="section-head"><div><div class="mono">06 · software</div><h2 id="software-title">Selected <i>software</i></h2></div></div>
+        <div class="section-body"><ul class="entries">
+            <li class="entry"><div class="meta"><span class="venue">h5i</span></div><div>
+                <p class="title"><a href="https://github.com/h5i-dev/h5i">h5i</a></p>
+                <p class="sub">The agent-native web security workspace (670+ stars on GitHub)</p>
+                <div class="badges"><img src="https://badgen.net/github/stars/Koukyosyumei/h5i?color=ff6258&amp;labelColor=16161a" alt="GitHub stars"> <img src="https://badgen.net/github/forks/Koukyosyumei/h5i?labelColor=16161a" alt="GitHub forks"></div></div></li>
+            <li class="entry"><div class="meta"><span class="venue">AIJack</span></div><div>
+                <p class="title"><a href="https://koukyosyumei.github.io/AIJack/">AIJack</a></p>
+                <p class="sub">Security risk simulator for machine learning (400+ stars on GitHub, 10k+ downloads)</p>
+                <div class="badges"><img src="https://badgen.net/github/stars/Koukyosyumei/AIjack?color=ff6258&amp;labelColor=16161a" alt="GitHub stars"> <img src="https://badgen.net/github/forks/Koukyosyumei/AIjack?labelColor=16161a" alt="GitHub forks"></div></div></li>
+        </ul></div>
+    </section>
+
+    <section class="section" id="experience" aria-labelledby="experience-title">
+        <div class="section-head"><div><div class="mono">07 · experience</div><h2 id="experience-title">Research <i>&amp;</i> industry</h2></div></div>
+        <div class="section-body">
+        <h3>research</h3>
+        <ul class="entries">
+            <li class="entry"><div class="meta"><span class="year">Apr. 2023 - Mar. 2024</span></div><div>
+                <p class="title">Fukunaga Lab, The University of Tokyo</p>
+                <p class="sub"><em>Undergraduate Student</em></p>
+                <p class="desc">Conducted research on the transit obfuscation problem, which is a new task of privacy-preserving AI planning, under the supervision of Prof. Alex Fukunaga.</p></div></li>
+            <li class="entry"><div class="meta"><span class="year">Jan. 2022 ‑ Feb. 2023</span></div><div>
+                <p class="title">Institute for AI Industry Research, Tsinghua University</p>
+                <p class="sub"><em>Federated Learning &amp; Privacy Computing Intern</em></p>
+                <p class="desc">Conducted research on federated learning and privacy computing under the supervision of Prof. Yang Liu and Prof. Jingjing Liu.</p></div></li>
+            <li class="entry"><div class="meta"><span class="year">Aug. 2021 ‑ Sep. 2021</span></div><div>
+                <p class="title">Laboratory for Software Design and Analysis, Nara Institute of Science and Technology</p>
+                <p class="sub"><em>Visiting Student</em></p>
+                <p class="desc">Conducted research on the free‑rider problem of federated learning under the supervision of Prof. Kohei Ichikawa and Prof. Keichi Takahashi.</p></div></li>
         </ul>
-    </div>
+        <h3 style="margin-top:28px">industry</h3>
+        <ul class="entries">
+            <li class="entry"><div class="meta"><span class="year">Feb. 2024 - Jul. 2024</span></div><div>
+                <p class="title">Apple Inc.</p>
+                <p class="sub"><em>Technical Internship: AIML/Software Engineer</em></p>
+                <p class="desc">Working on AIML/software engineering.</p></div></li>
+            <li class="entry"><div class="meta"><span class="year">Oct. 2020 - Mar. 2024</span></div><div>
+                <p class="title">UTokyo Economic Consulting Inc.</p>
+                <p class="sub"><em>Research Assistant</em></p>
+                <p class="desc">Working on research and social implementations of econometrics and machine learning.</p></div></li>
+            <li class="entry"><div class="meta"><span class="year">Aug. 2020 - Sep. 2020</span></div><div>
+                <p class="title">RECRUIT</p>
+                <p class="sub"><em>Data Science Intern</em></p>
+                <p class="desc">Worked on a location‑based restaurant recommendation iOS app.</p></div></li>
+            <li class="entry"><div class="meta"><span class="year">Feb. 2020 - Jun. 2020</span></div><div>
+                <p class="title">M3, Inc.</p>
+                <p class="sub"><em>Data Analysis Intern</em></p>
+                <p class="desc">Worked on a data analysis project in the field of medical surveys.</p></div></li>
+            <li class="entry"><div class="meta"><span class="year">Sep. 2019 ‑ Mar. 2020</span></div><div>
+                <p class="title">FRONTEO, Inc.</p>
+                <p class="sub"><em>Research Intern</em></p>
+                <p class="desc">Worked on the detection of anomaly documents with NLP and network analysis.</p></div></li>
+        </ul></div>
+    </section>
 
-    <div class="section tight">
-        <h2>Preprints</h2>
-        <ul>
-            <li><a href="https://arxiv.org/pdf/2409.04597">Detecting buggy contracts via smart testing.</a> arXiv:2409.04597 <span class="year">- 2024</span><br/>
-                <span class="indent">Sally Junsong Wang, Jianan Yao, Kexin Pei, Hideaki Takahashi, and Junfeng Yan</span>
-            </li>
-            <li><a href="https://arxiv.org/pdf/2307.10318">Eliminating Label Leakage in Tree‑based Vertical Federated Learning.</a> arXiv:2307.10318 <span class="year">- 2023</span><br/>
-                <span class="indent">Hideaki Takahashi*, Jingjing Liu, and Yang Liu</span>
-            </li>
-            <li><a href="http://id.nii.ac.jp/1001/00214220/">Difficulty of Detecting Overstated Dataset Size in Federated Learning.</a> Technical Report of DPS, 10, Information Processing Society of Japan. <span class="year">- 2021</span><br/>
-                <span class="indent">Hideaki Takahashi*, Kohei Ichikawa, and Keichi Takahashi</span>
-            </li>
-        </ul>
-    </div>
+    <section class="section" id="honors" aria-labelledby="honors-title">
+        <div class="section-head"><div><div class="mono">08 · honors</div><h2 id="honors-title">Honors</h2></div></div>
+        <div class="section-body"><ul class="entries">
+            <li class="entry"><div class="meta"><span class="venue">Scholarship</span><span class="year">2024</span></div><div>
+                <p class="title">Funai Foundation Scholarship</p>
+                <p class="sub"><a href="https://funaifoundation.jp/scholarship/en/scholarship_guidelines_phd.html">Scholarship</a> · Granted two years of tuition and stipend</p></div></li>
+            <li class="entry"><div class="meta"><span class="venue">Kaggle · silver</span><span class="year">2023</span></div><div>
+                <p class="title">Kaggle, Google - Fast or Slow? Predict AI Model Runtime</p>
+                <p class="sub"><a href="https://www.kaggle.com/competitions/predict-ai-model-runtime">45th/616 teams (silver medal)</a></p>
+                <p class="desc">Compiler Optimization, Automated Algorithmic Configuration</p></div></li>
+            <li class="entry"><div class="meta"><span class="venue">Kaggle · bronze</span><span class="year">2021</span></div><div>
+                <p class="title">Kaggle, Hungry Geese</p>
+                <p class="sub"><a href="https://www.kaggle.com/competitions/hungry-geese">67th/875 teams (bronze medal)</a></p>
+                <p class="desc">AI Agent, Reinforcement Learning</p></div></li>
+            <li class="entry"><div class="meta"><span class="venue">Kaggle · bronze</span><span class="year">2021</span></div><div>
+                <p class="title">Kaggle, Santa 2020</p>
+                <p class="sub"><a href="https://www.kaggle.com/competitions/santa-2020">52nd/788 teams (bronze medal)</a></p>
+                <p class="desc">AI Agent, Reinforcement Learning, Multi-Armed Bandit</p></div></li>
+            <li class="entry"><div class="meta"><span class="venue">Kaggle · silver</span><span class="year">2020</span></div><div>
+                <p class="title">Kaggle, Google Research Football with Manchester City F.C.</p>
+                <p class="sub"><a href="https://www.kaggle.com/c/google-football">51st/1138 teams (silver medal)</a></p>
+                <p class="desc">AI Agent, Reinforcement Learning</p></div></li>
+            <li class="entry"><div class="meta"><span class="venue">Kaggle · bronze</span><span class="year">2020</span></div><div>
+                <p class="title">Kaggle, Cornell Birdcall Identification</p>
+                <p class="sub"><a href="https://www.kaggle.com/c/birdsong-recognition">88th/1390 teams (bronze medal)</a></p>
+                <p class="desc">Audio Classification, Signal Processing</p></div></li>
+        </ul></div>
+    </section>
 
-    <div class="section tight">
-        <h2>Talks</h2>
-        <ul>
-            <li><a href="https://security.cs.berkeley.edu/seminar/?talk=zkfuzz-foundation-framework-effective">UC Berkeley Security Seminar</a> <span class="year">- 2026</span><br/>
-                <span class="indent">Title: zkFuzz: Foundation and Framework for Effective Fuzzing of Zero-Knowledge Circuits</span>
-            </li>
-            <li><a href="https://luma.com/ZKFrontier2">Zero Knowledge Frontier Japan: vol.2</a> <span class="year">- 2025</span><br/>
-                <span class="indent">Title: Typical Bugs and Detection Methods in Implementing Zero‑Knowledge Proof Constraint</span>
-            </li>
-        </ul>
-    </div>
+    <section class="section" id="service" aria-labelledby="service-title">
+        <div class="section-head"><div><div class="mono">09 · service</div><h2 id="service-title">Service</h2></div></div>
+        <div class="section-body">
+        <h3>reviewer</h3>
+        <ul class="entries">
+            <li class="entry"><div class="meta"><span class="venue">Conference</span></div><div><p class="title">NeurIPS 2026</p></div></li>
+            <li class="entry"><div class="meta"><span class="venue">Journal</span></div><div><p class="title">IEEE Transactions on Network Science and Engineering</p></div></li>
+            <li class="entry"><div class="meta"><span class="venue">Journal</span></div><div><p class="title">IEEE Transactions on Medical Imaging</p></div></li>
+            <li class="entry"><div class="meta"><span class="venue">Journal</span></div><div><p class="title">IEEE Transactions on Dependable and Secure Computing</p></div></li>
+        </ul></div>
+    </section>
 
-    <div class="section">
-        <h2>Selected Security Findings</h2>
-        <ul>
-            <li><a href="https://github.com/DayuanJiang/next-ai-draw-io/security/advisories/GHSA-9q7h-wgfw-p378">CVE-2026-40608</a>: Out-of-Memory crash in MCP server</li>
-            <li><a href="https://github.com/icip-cas/PPTAgent/security/advisories/GHSA-hrcw-xc63-g29m">CVE-2026-42078</a>: Arbitrary File Write in MCP server</li>
-            <li><a href="https://github.com/icip-cas/PPTAgent/security/advisories/GHSA-89g2-xw5c-v95p">CVE-2026-42079</a>: Arbitrary Code Execution in MCP server</li>
-            <li><a href="https://github.com/icip-cas/PPTAgent/security/advisories/GHSA-pxhg-7xr2-w7xg">CVE-2026-42080</a>: Arbitrary File Write in MCP server</li>
-            <li><a href="https://github.com/worm-privacy/proof-of-burn/issues/1">worm-privacy/proof-of-burn#1</a>: Under-Constrained ZK Circuit</li>
-        </ul>
-    </div>
+    <section class="section" id="restaurants" aria-labelledby="restaurants-title">
+        <div class="section-head"><div><div class="mono">10 · the useful part</div><h2 id="restaurants-title">Favorite Japanese restaurants in <i>New York</i></h2></div></div>
+        <div class="section-body"><ul class="entries">
+            <li class="entry"><div class="meta"><span class="venue">Midtown</span></div><div><p class="title"><a href="https://www.yelp.com/biz/okatte-tanto-ny-new-york">Okatte Tanto NY</a></p><p class="sub">249 E 49th St New York, NY 10017</p></div></li>
+            <li class="entry"><div class="meta"><span class="venue">Koreatown</span></div><div><p class="title"><a href="https://www.beauu.nyc/">Sushi Beauu</a></p><p class="sub">15 W 33rd St, New York, NY 10118</p></div></li>
+            <li class="entry"><div class="meta"><span class="venue">East Village</span></div><div><p class="title"><a href="https://www.kimuranyc.com/">Kimura</a></p><p class="sub">31 St Marks Pl, New York, NY 10003</p></div></li>
+            <li class="entry"><div class="meta"><span class="venue">Williamsburg</span></div><div><p class="title"><a href="https://www.afuriramen.com/brooklyn">Afuri</a></p><p class="sub">61 N 11th St, Brooklyn, NY 11249</p></div></li>
+            <li class="entry"><div class="meta"><span class="venue">Hell's Kitchen</span></div><div><p class="title"><a href="https://www.henohenonyc.com/">heno heno</a></p><p class="sub">358 W 46th St, New York, NY 10036</p></div></li>
+            <li class="entry"><div class="meta"><span class="venue">Greenpoint</span></div><div><p class="title"><a href="https://www.uzuki-ny.com/">Uzuki</a></p><p class="sub">95 Guernsey St, Brooklyn, NY 11222</p></div></li>
+        </ul></div>
+    </section>
 
-    <div class="section tight">
-        <h2>Selected Softwares</h2>
-        <ul>
-            <li><a href="https://github.com/h5i-dev/h5i">h5i</a><br/>
-                <span class="indent"><img src="https://badgen.net/github/stars/Koukyosyumei/h5i?color=green"> <img src="https://badgen.net/github/forks/Koukyosyumei/h5i"></span><br/>
-                <span class="indent">The agent-native web security workspace (670+ stars on GitHub)</span>
-            </li>
-            <li><a href="https://koukyosyumei.github.io/AIJack/">AIJack</a><br/>
-                <span class="indent"><img src="https://badgen.net/github/stars/Koukyosyumei/AIjack?color=green"> <img src="https://badgen.net/github/forks/Koukyosyumei/AIjack"></span><br/>
-                <span class="indent">Security risk simulator for machine learning (400+ stars on GitHub, 10k+ downloads)</span>
-            </li>
-        </ul>
-    </div>
+    <section class="section" id="contact" aria-labelledby="contact-title">
+        <div class="section-head"><div><div class="mono">11 · contact</div><h2 id="contact-title">Contact</h2></div></div>
+        <div class="section-body"><p class="contact">Email: ht<span>[3^5*11]</span>@columbia.edu</p></div>
+    </section>
 
-    <div class="section tight">
-        <h2>Research Experience</h2>
-        <ul>
-            <li><strong>Fukunaga Lab, The University of Tokyo</strong>: <span class="year">Apr. 2023 - Mar. 2024</span><br/>
-                <span class="indent"><em>Undergraduate Student</em></span><br/>
-                <span class="indent">Conducted research on the transit obfuscation problem, which is a new task of privacy-preserving AI planning, under the supervision of Prof. Alex Fukunaga.</span>
-            </li>
-            <li><strong>Institute for AI Industry Research, Tsinghua University</strong>: <span class="year">Jan. 2022 ‑ Feb. 2023</span><br/>
-                <span class="indent"><em>Federated Learning & Privacy Computing Intern</em></span><br/>
-                <span class="indent">Conducted research on federated learning and privacy computing under the supervision of Prof. Yang Liu and Prof. Jingjing Liu.</span>
-            </li>
-            <li><strong>Laboratory for Software Design and Analysis, Nara Institute of Science and Technology</strong>: <span class="year">Aug. 2021 ‑ Sep. 2021</span><br/>
-                <span class="indent"><em>Visiting Student</em></span><br/>
-                <span class="indent">Conducted research on the free‑rider problem of federated learning under the supervision of Prof. Kohei Ichikawa and Prof. Keichi Takahashi.</span>
-            </li>
-        </ul>
+    <footer class="site-foot"><span>© Hideaki Takahashi</span><span>// the octopus is drawn from code</span></footer>
+</main>
 
-    </div>
-
-    <div class="section tight">
-        <h2>Industry Experience</h2>
-        <ul>
-            <li><strong>Apple Inc.</strong>: <span class="year">Feb. 2024 - Jul. 2024</span><br/>
-                <span class="indent"><em>Technical Internship: AIML/Software Engineer</em></span><br/>
-                <span class="indent">Working on AIML/software engineering.</span>
-            </li>
-            <li><strong>UTokyo Economic Consulting Inc.</strong>: <span class="year">Oct. 2020 - Mar. 2024</span><br/>
-                <span class="indent"><em>Research Assistant</em></span><br/>
-                <span class="indent">Working on research and social implementations of econometrics and machine learning.</span>
-            </li>
-            <li><strong>RECRUIT</strong>: <span class="year">Aug. 2020 - Sep. 2020</span><br/>
-                <span class="indent"><em>Data Science Intern</em></span><br/>
-                <span class="indent">Worked on a location‑based restaurant recommendation iOS app.</span>
-            </li>
-            <li><strong>M3, Inc.</strong>: <span class="year">Feb. 2020 - Jun. 2020</span><br/>
-                <span class="indent"><em>Data Analysis Intern</em></span><br/>
-                <span class="indent">Worked on a data analysis project in the field of medical surveys.</span>
-            </li>
-            <li><strong>FRONTEO, Inc.</strong>: <span class="year">Sep. 2019 ‑ Mar. 2020</span><br/>
-                <span class="indent"><em>Research Intern</em></span><br/>
-                <span class="indent">Worked on the detection of anomaly documents with NLP and network analysis.</span>
-            </li>
-        </ul>
-        
-    </div>
-
-    <div class="section tight">
-        <h2>Honors</h2>
-        <ul>
-            <li><strong>Funai Foundation Scholarship</strong> <span class="year">- 2024</span><br/>
-                <span class="indent"><a href="https://funaifoundation.jp/scholarship/en/scholarship_guidelines_phd.html">Scholarship</a></span><br/>
-                <span class="indent">Granted two years of tuition and stipend</span>
-            </li>
-            <li><strong>Kaggle, Google - Fast or Slow? Predict AI Model Runtime</strong> <span class="year">- 2023</span><br/>
-                <span class="indent"><a href="https://www.kaggle.com/competitions/predict-ai-model-runtime">45th/616 teams (silver medal)</a></span><br/>
-                <span class="indent">Compiler Optimization, Automated Algorithmic Configuration</span>
-            </li>
-            <li><strong>Kaggle, Hungry Geese</strong> <span class="year">- 2021</span><br/>
-                <span class="indent"><a href="https://www.kaggle.com/competitions/hungry-geese">67th/875 teams (bronze medal)</a></span><br/>
-                <span class="indent">AI Agent, Reinforcement Learning</span>
-            </li>
-            <li><strong>Kaggle, Santa 2020</strong> <span class="year">- 2021</span><br/>
-                <span class="indent"><a href="https://www.kaggle.com/competitions/santa-2020">52nd/788 teams (bronze medal)</a></span><br/>
-                <span class="indent">AI Agent, Reinforcement Learning, Multi-Armed Bandit</span>
-            </li>
-            <li><strong>Kaggle, Google Research Football with Manchester City F.C.</strong> <span class="year">- 2020</span><br/>
-                <span class="indent"><a href="https://www.kaggle.com/c/google-football">51st/1138 teams (silver medal)</a></span><br/>
-                <span class="indent">AI Agent, Reinforcement Learning</span>
-            </li>
-            <li><strong>Kaggle, Cornell Birdcall Identification</strong> <span class="year">- 2020</span><br/>
-                <span class="indent"><a href="https://www.kaggle.com/c/birdsong-recognition">88th/1390 teams (bronze medal)</a></span><br/>
-                <span class="indent">Audio Classification, Signal Processing</span>
-            </li>
-        </ul>
-        
-    </div>
-
-    <div class="section">
-        <h2>Service</h2>
-        <h3>Reviewer</h3>
-        <ul>
-            <li>NeurIPS 2026</li>
-            <li>IEEE Transactions on Network Science and Engineering</li>
-            <li>IEEE Transactions on Medical Imaging</li>
-            <li>IEEE Transactions on Dependable and Secure Computing</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2>Favorite Japanese Restaurants in New York</h2>
-        <ul>
-            <li><a href="https://www.yelp.com/biz/okatte-tanto-ny-new-york">Okatte Tanto NY</a>, 249 E 49th St New York, NY 10017</li>
-            <li><a href="https://www.beauu.nyc/">Sushi Beauu</a>, 15 W 33rd St, New York, NY 10118</li>
-            <li><a href="https://www.kimuranyc.com/">Kimura</a>, 31 St Marks Pl, New York, NY 10003</li>
-            <li><a href="https://www.afuriramen.com/brooklyn">Afuri</a>, 61 N 11th St, Brooklyn, NY 11249</li>
-            <li><a href="https://www.henohenonyc.com/">heno heno</a>, 358 W 46th St, New York, NY 10036</li>
-            <li><a href="https://www.uzuki-ny.com/">Uzuki</a>, 95 Guernsey St, Brooklyn, NY 11222</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2>Contact</h2>
-        <p>Email: ht[3^5*11]@columbia.edu</p>
-    </div>
+<canvas class="tentacle" id="tentacle" aria-hidden="true"></canvas>
+<canvas id="guide-octopus" title="Back to top" aria-hidden="true"></canvas>
+<script src="static/js/octopus.js"></script>
 </body>
 </html>
-
-
-
-
-
